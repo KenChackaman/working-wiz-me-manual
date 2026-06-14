@@ -12,7 +12,9 @@
         }
         var b = document.createElement("base");
         b.href = location.origin + path;
-        document.head.insertBefore(b, document.head.firstChild);
+        var charset = document.querySelector("meta[charset]");
+        if (charset && charset.parentNode) charset.parentNode.insertBefore(b, charset.nextSibling);
+        else document.head.insertBefore(b, document.head.firstChild);
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,7 +29,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260214b" />
   </head>
   <body>
     <div class="page">
@@ -35,6 +37,10 @@
         <h1>私の取扱説明書ジェネレーター</h1>
         <p>
           チームがあなたと一緒に働くときの「読み物」を1枚にまとめ、PNGとPowerPointで出力します。入力内容はこのPCのブラウザ内だけで処理されます。
+        </p>
+        <p class="cache-hint">
+          画面が古いままのときは <strong>強制再読み込み</strong>（Windows: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> /
+          Mac: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>）を試してください。
         </p>
       </header>
 
@@ -199,6 +205,6 @@
       </div>
     </div>
 
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./app.js?v=20260214b"></script>
   </body>
 </html>

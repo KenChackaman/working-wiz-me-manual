@@ -52,6 +52,21 @@ header.hero p {
   font-size: 0.95rem;
 }
 
+header.hero .cache-hint {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+header.hero .cache-hint kbd {
+  font: inherit;
+  border: 1px solid #cfcfcf;
+  border-bottom-width: 2px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: #fff;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 1fr 1fr;

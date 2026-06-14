@@ -24,7 +24,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p site/assets
-          cp index.html styles.css app.js site/
+          cp index.html styles.css app.js ATTRIBUTION.md site/
           cp -r assets/* site/assets/
 
       - name: Upload artifact

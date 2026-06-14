@@ -23,26 +23,29 @@
       name="description"
       content="Working with me — 1枚PNGとPowerPointをブラウザだけで作成（データは外部送信しません）"
     />
-    <link rel="icon" href="./assets/favicon.svg?v=20260216c" type="image/svg+xml" />
+    <link rel="icon" href="./assets/favicon.svg?v=20260217" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260216c" />
+    <link rel="stylesheet" href="./styles.css?v=20260217" />
   </head>
   <body>
     <a class="skip-link" href="#main">本文へスキップ</a>
 
     <header class="site-chrome" role="banner">
       <div class="site-chrome__inner">
-        <div class="brand-lockup" aria-label="楽天（簡易表現。公式ロゴではありません）">
-          <img class="brand-lockup__mark" src="./assets/mark.svg?v=20260216c" width="36" height="36" alt="" />
-          <div class="brand-lockup__text">
-            <div class="brand-lockup__ja">楽天</div>
-            <div class="brand-lockup__en">Rakuten</div>
-          </div>
+        <div class="brand-lockup" aria-label="Rakuten">
+          <img
+            class="brand-lockup__logo"
+            src="./assets/rakuten-logo.svg?v=20260217"
+            width="168"
+            height="56"
+            alt="Rakuten"
+            decoding="async"
+          />
           <div class="brand-lockup__divider" aria-hidden="true"></div>
           <div class="brand-lockup__product">
             <div class="brand-lockup__product-title">私の取扱説明書</div>
@@ -78,12 +81,13 @@
             </p>
             <ul class="hero__bullets" aria-label="特徴">
               <li>入力はブラウザ内だけ（外部サーバーに送信しません）</li>
-              <li>楽天らしい赤を基調にした画面（簡易トンマナ）</li>
+              <li>楽天カラー＋ワードマークを基調にした、スタイリッシュなUI</li>
               <li>更新しやすい「生きたガイド」として運用できます</li>
             </ul>
             <p class="hero__legal">
-              画面上の「楽天／Rakuten」表記とマークは <strong>社内向けの簡易表現</strong>です。公式ロゴや厳密な配色は
-              <strong>Rakuten Brand &amp; ReX Guidelines</strong> に従って差し替えてください。
+              ヘッダーのワードマークは <strong>Wikimedia Commons</strong> の <code class="mono">Rakuten_logo.svg</code>
+              （出典: 楽天IR資料 / PD-textlogo）を同梱しています。商標としての扱いには注意が必要なため、用途に応じて
+              <strong>Rakuten Brand &amp; ReX Guidelines</strong> と社内手順を確認してください。
             </p>
             <p class="cache-hint">
               表示が古いときは <strong>強制再読み込み</strong>（Windows: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> /
@@ -542,16 +546,24 @@
       <footer class="site-footer">
         <div class="site-footer__inner">
           <div class="site-footer__brand">
-            <img src="./assets/mark.svg?v=20260216c" width="28" height="28" alt="" />
-            <span>楽天トンマナ（簡易版） / ブラウザ完結ツール</span>
+            <img
+              class="site-footer__logo"
+              src="./assets/rakuten-logo.svg?v=20260217"
+              width="140"
+              height="47"
+              alt="Rakuten"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="site-footer__tag">Rakuten tone UI · Local-only tool</span>
           </div>
           <div class="site-footer__note">
-            商標・ロゴの正式利用は社内手順に従ってください（本サイトのマークはオリジナルです）。
+            出典: Wikimedia Commons（<span class="mono">Rakuten_logo.svg</span>）。本サイトは楽天グループの公式サイトではありません。
           </div>
         </div>
       </footer>
     </main>
 
-    <script type="module" src="./app.js?v=20260216c"></script>
+    <script type="module" src="./app.js?v=20260217"></script>
   </body>
 </html>

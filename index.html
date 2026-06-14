@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>私の取扱説明書ジェネレーター</title>
+    <meta
+      name="description"
+      content="Working with me — 1枚PNGとPowerPointをブラウザだけで作成（データは外部送信しません）"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <h1>私の取扱説明書ジェネレーター</h1>
+        <p>
+          チームがあなたと一緒に働くときの「読み物」を1枚にまとめ、PNGとPowerPointで出力します。入力内容はこのPCのブラウザ内だけで処理されます。
+        </p>
+      </header>
+
+      <div class="layout">
+        <section class="panel">
+          <h2>入力 <span class="badge">LOCAL ONLY</span></h2>
+
+          <div class="field">
+            <label for="displayName">表示名（氏名）<span class="hint">必須</span></label>
+            <input id="displayName" type="text" autocomplete="name" placeholder="例：楽天 太郎" />
+          </div>
+          <div class="field">
+            <label for="department">所属<span class="hint">必須</span></label>
+            <input
+              id="department"
+              type="text"
+              placeholder="例：楽天株式会社 A&amp;Mカンパニー ○○部"
+            />
+          </div>
+          <div class="field">
+            <label for="role">役職／ロール<span class="hint">任意</span></label>
+            <input id="role" type="text" placeholder="例：プロダクトマネージャー" />
+          </div>
+
+          <div class="field">
+            <label for="strengths">得意な貢献・強み<span class="hint">必須</span></label>
+            <textarea id="strengths" placeholder="例：曖昧な課題を構造化して、合意形成まで伴走します。"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="decisionStyle">意思決めの進め方<span class="hint">推奨</span></label>
+            <textarea
+              id="decisionStyle"
+              placeholder="例：叩き台が早いほど思考が進みます。意思決めは根拠リンク付きだと安心です。"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="focusHours">集中しやすい時間帯<span class="hint">任意</span></label>
+            <input id="focusHours" type="text" placeholder="例：午前は深掘り、午後は会議多めでもOK" />
+          </div>
+
+          <div class="field">
+            <label for="channels">連絡チャネルの優先順位<span class="hint">推奨</span></label>
+            <textarea id="channels" placeholder="例：チャット→（必要なら）短い通話→メールで確定"></textarea>
+          </div>
+          <div class="field">
+            <label for="responseSLA">返信の目安<span class="hint">任意</span></label>
+            <input id="responseSLA" type="text" placeholder="例：通常24h以内に一次返信。緊急はチャットで@。" />
+          </div>
+          <div class="field">
+            <label for="meetingPrefs">会議の好み<span class="hint">任意</span></label>
+            <textarea id="meetingPrefs" placeholder="例：アジェンダがあると幸せ。結論先出しが好きです。"></textarea>
+          </div>
+          <div class="field">
+            <label for="commStyle">文章 vs 口頭<span class="hint">任意</span></label>
+            <input id="commStyle" type="text" placeholder="例：複雑系は口頭、合意事項は文章で残したい" />
+          </div>
+
+          <div class="field">
+            <label for="feedbackGood">受け取りやすいフィードバック<span class="hint">推奨</span></label>
+            <textarea id="feedbackGood" placeholder="例：具体例つきだと改善が早いです。"></textarea>
+          </div>
+          <div class="field">
+            <label for="feedbackStress">ストレスになりやすい伝え方<span class="hint">任意</span></label>
+            <textarea id="feedbackStress" placeholder="例：人格に見える表現は避けてほしいです。"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="misunderstood">誤解されがちな点<span class="hint">任意</span></label>
+            <textarea id="misunderstood" placeholder="例：沈黙＝不満ではなく、整理していることが多いです。"></textarea>
+          </div>
+          <div class="field">
+            <label for="helpMe">こうされると助かる<span class="hint">推奨</span></label>
+            <textarea id="helpMe" placeholder="例：背景目的を1行で共有してくれると最高です。"></textarea>
+          </div>
+
+          <details class="advanced">
+            <summary>さらに詳しく（任意）</summary>
+            <div class="field">
+              <label for="avoidRoles">苦手／避けたい役割</label>
+              <textarea id="avoidRoles" placeholder="例：細かい手作業の連続は得意ではありません。"></textarea>
+            </div>
+            <div class="field">
+              <label for="energizers">エネルギーが上がること</label>
+              <textarea id="energizers" placeholder="例：ユーザー課題が数字で改善したとき。"></textarea>
+            </div>
+            <div class="field">
+              <label for="stressful">消耗しやすいこと</label>
+              <textarea id="stressful" placeholder="例：目的が曖昧なままの多人数会議。"></textarea>
+            </div>
+            <div class="field">
+              <label for="boundaries">連絡・時間の境界</label>
+              <textarea id="boundaries" placeholder="例：休日は原則非同期。緊急はチャットのみ。"></textarea>
+            </div>
+            <div class="field">
+              <label for="footerNote">フッター注記（任意）</label>
+              <input id="footerNote" type="text" placeholder="例：共有範囲：社内／更新：四半期ごと" />
+            </div>
+          </details>
+
+          <div class="actions">
+            <button class="primary" id="btnPng" type="button">PNGを保存（16:9）</button>
+            <button class="secondary" id="btnPptx" type="button">PowerPointを保存</button>
+            <button class="ghost" id="btnReset" type="button">入力をクリア</button>
+          </div>
+          <p class="status" id="status"></p>
+        </section>
+
+        <section class="panel preview-wrap">
+          <h2>プレビュー（出力と同じレイアウト）</h2>
+          <div class="preview-scale">
+            <div class="preview-frame">
+              <div id="exportRoot">
+                <article class="card" id="card" aria-label="プレビューカード">
+                  <div class="topbar"></div>
+                  <div class="head">
+                    <div>
+                      <p class="title">私の取扱説明書</p>
+                      <p class="subtitle">Working with me（一緒に働くときのガイド）</p>
+                    </div>
+                    <div class="meta">
+                      <p class="name" id="pvName">（表示名）</p>
+                      <p class="dept" id="pvDept">（所属）</p>
+                      <p class="role" id="pvRole"></p>
+                      <p class="updated" id="pvUpdated"></p>
+                    </div>
+                  </div>
+                  <div class="grid">
+                    <div class="block">
+                      <h3>得意な貢献・強み</h3>
+                      <p id="pvStrengths">（未入力）</p>
+                    </div>
+                    <div class="block">
+                      <h3>コミュニケーション</h3>
+                      <p id="pvComm">（未入力）</p>
+                    </div>
+                    <div class="block">
+                      <h3>意思決め・集中</h3>
+                      <p id="pvDecision">（未入力）</p>
+                    </div>
+                    <div class="block">
+                      <h3>フィードバック</h3>
+                      <p id="pvFeedback">（未入力）</p>
+                    </div>
+                    <div class="block">
+                      <h3>誤解されがち／助けてほしいこと</h3>
+                      <p id="pvTeam">（未入力）</p>
+                    </div>
+                    <div class="block">
+                      <h3>エネルギー／注意・境界</h3>
+                      <p id="pvEnergy">（未入力）</p>
+                    </div>
+                  </div>
+                  <p class="footer-note" id="pvFooter">
+                    ※これは「協力のためのガイド」であり、相手への要求リストではありません。更新しながら育てていきましょう。
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

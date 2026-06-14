@@ -231,6 +231,21 @@ function injectPresets() {
     const host = document.createElement("div");
     host.className = "preset-host";
 
+    const legend = document.createElement("div");
+    legend.className = "preset-legend";
+    legend.setAttribute("aria-label", "回答の手順");
+    legend.innerHTML = `<div class="preset-legend__steps">
+      <div class="preset-legend__step">
+        <span class="preset-legend__num" aria-hidden="true">1</span>
+        <span class="preset-legend__txt">近いものを<strong>1つ</strong>選ぶ</span>
+      </div>
+      <span class="preset-legend__sep" aria-hidden="true">→</span>
+      <div class="preset-legend__step">
+        <span class="preset-legend__num" aria-hidden="true">2</span>
+        <span class="preset-legend__txt">必要なら下に<strong>追記</strong></span>
+      </div>
+    </div>`;
+
     const grid = document.createElement("div");
     grid.className = "preset-grid";
     grid.setAttribute("role", "radiogroup");
@@ -239,25 +254,37 @@ function injectPresets() {
     for (const opt of pr.options) {
       const card = document.createElement("label");
       card.className = "preset-card";
+      const inner = document.createElement("div");
+      inner.className = "preset-card__inner";
       const inp = document.createElement("input");
       inp.type = "radio";
       inp.name = `${id}_preset`;
       inp.value = opt.v;
+      const textWrap = document.createElement("div");
+      textWrap.className = "preset-card__text";
       const t = document.createElement("span");
       t.className = "preset-card__title";
       t.textContent = opt.label;
       const b = document.createElement("span");
       b.className = "preset-card__body";
       b.textContent = opt.body;
-      card.append(inp, t, b);
+      textWrap.append(t, b);
+      inner.append(inp, textWrap);
+      card.appendChild(inner);
       grid.appendChild(card);
     }
 
-    const hint = document.createElement("p");
-    hint.className = "preset-free-hint";
-    hint.textContent = "自由記述（任意）：候補に足したい具体例・例外・条件を追記できます。";
+    const freeWrap = document.createElement("div");
+    freeWrap.className = "preset-free-wrap";
+    const freeLabel = document.createElement("div");
+    freeLabel.className = "preset-free-wrap__label";
+    freeLabel.textContent = "追記・自由記述（任意）";
+    const freeHint = document.createElement("p");
+    freeHint.className = "preset-free-hint";
+    freeHint.textContent = "候補と違う場合や、具体例・例外を足したいときだけ記入してください。";
+    freeWrap.append(freeLabel, freeHint);
 
-    host.append(grid, hint);
+    host.append(legend, grid, freeWrap);
     label.insertAdjacentElement("afterend", host);
   }
 }

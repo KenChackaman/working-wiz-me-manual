@@ -30,12 +30,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260218" />
+    <link rel="stylesheet" href="./styles.css?v=20260219" />
   </head>
   <body>
     <a class="skip-link" href="#main">本文へスキップ</a>
 
     <header class="site-chrome" role="banner">
+      <div class="site-chrome__accent" aria-hidden="true"></div>
       <div class="site-chrome__inner">
         <div class="brand-lockup" aria-label="Rakuten">
           <img
@@ -49,12 +50,12 @@
           <div class="brand-lockup__divider" aria-hidden="true"></div>
           <div class="brand-lockup__product">
             <div class="brand-lockup__product-title">私の取扱説明書</div>
-            <div class="brand-lockup__product-sub">Working with me</div>
+            <div class="brand-lockup__product-sub">Working with me ジェネレーター</div>
           </div>
         </div>
 
         <div class="site-chrome__meta">
-          <span class="pill pill--dark">
+          <span class="pill pill--local" title="入力内容はこのブラウザ内だけで処理されます">
             <svg class="pill__icon" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M12 3l7 4v5c0 5-3 9-7 11-4-2-7-6-7-11V7l7-4z"
@@ -64,51 +65,63 @@
                 stroke-linejoin="round"
               />
             </svg>
-            完全ローカル処理
+            外部送信なし
           </span>
         </div>
       </div>
     </header>
 
     <main class="page" id="main">
-      <section class="hero hero--glass" aria-labelledby="hero-title">
-        <div class="hero__grid">
-          <div class="hero__copy">
-            <p class="hero__eyebrow">A&amp;Mカンパニー向け · チーム浸透用ツール</p>
-            <h1 id="hero-title" class="hero__title">私の取扱説明書ジェネレーター</h1>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__inner">
+          <div class="hero__intro">
+            <p class="hero__eyebrow">チーム向け · ブラウザだけで完結</p>
+            <h1 id="hero-title" class="hero__title">私の取扱説明書をつくる</h1>
             <p class="hero__lead">
-              仕事の進め方・コミュニケーションの好みを1枚に整理し、<strong>PNG</strong> と <strong>PowerPoint</strong> で配布できます。
+              進め方や連絡の好みを短く整理し、<strong>PNG（16:9）</strong> または <strong>PowerPoint</strong> として保存できます。
             </p>
-            <ul class="hero__bullets" aria-label="特徴">
-              <li>入力はブラウザ内だけ（外部サーバーに送信しません）</li>
-              <li>楽天カラー＋ワードマークを基調にした、スタイリッシュなUI</li>
-              <li>更新しやすい「生きたガイド」として運用できます</li>
+          </div>
+          <aside class="hero__aside" aria-label="この文書の位置づけ">
+            <p class="hero__aside-title">こんなときに使います</p>
+            <ul class="hero__aside-list">
+              <li>新メンバーとのすり合わせの土台にする</li>
+              <li>1on1 やプロジェクト立ち上げの自己紹介に使う</li>
+              <li>「協力のためのガイド」として共有する（要求リストではありません）</li>
             </ul>
-            <p class="hero__legal">
-              ヘッダーのワードマークは <strong>Wikimedia Commons</strong> の <code class="mono">Rakuten_logo.svg</code>
-              （出典: 楽天IR資料 / PD-textlogo）を同梱しています。商標としての扱いには注意が必要なため、用途に応じて
+          </aside>
+        </div>
+        <details class="hero__disclosure">
+          <summary>商標・素材・表示が古いとき</summary>
+          <div class="hero__disclosure-body">
+            <p>
+              ヘッダー／フッターのワードマークは <strong>Wikimedia Commons</strong> の
+              <code class="mono">Rakuten_logo.svg</code>（出典: 楽天IR資料 / PD-textlogo）を同梱しています。商標の扱いは用途に応じて
               <strong>Rakuten Brand &amp; ReX Guidelines</strong> と社内手順を確認してください。
             </p>
             <p class="cache-hint">
-              表示が古いときは <strong>強制再読み込み</strong>（Windows: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> /
-              Mac: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>）
+              画面が更新されないときは <strong>強制再読み込み</strong>（Windows:
+              <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> / Mac: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>）
             </p>
           </div>
-
-          <aside class="hero__panel" aria-label="クイックガイド">
-            <div class="hero__panel-title">このツールの目的</div>
-            <ol class="hero__steps">
-              <li>自分の「協力のためのガイド」を言語化する</li>
-              <li>チームが迷子にならない“前提”を短く共有する</li>
-              <li>対話の入口をつくる（要求リストではない）</li>
-            </ol>
-            <div class="hero__panel-foot">
-              <span class="mini-badge">TIP</span>
-              まずは必須だけ埋めて、あとから育てるのがおすすめです。
-            </div>
-          </aside>
-        </div>
+        </details>
       </section>
+
+      <nav class="site-flow" aria-label="入力の流れ">
+        <ol class="site-flow__list">
+          <li class="site-flow__item">
+            <span class="site-flow__step">1</span>
+            <span class="site-flow__text"><strong>基本情報</strong>と<strong>得意・強み</strong>（必須）から埋める</span>
+          </li>
+          <li class="site-flow__item">
+            <span class="site-flow__step">2</span>
+            <span class="site-flow__text">各項目で<strong>候補を1つ</strong>選び、必要なら<strong>下に追記</strong></span>
+          </li>
+          <li class="site-flow__item">
+            <span class="site-flow__step">3</span>
+            <span class="site-flow__text">プレビューを確認して<strong>PNG</strong>または<strong>PowerPoint</strong>で保存</span>
+          </li>
+        </ol>
+      </nav>
 
       <div class="layout">
         <section class="panel panel--sheet" aria-labelledby="form-title">
@@ -132,10 +145,10 @@
               </svg>
             </span>
             <div>
-              <h2 id="form-title" class="panel__title">入力シート</h2>
-              <p class="panel__subtitle">LOCAL ONLY · ブラウザ内で完結</p>
+              <h2 id="form-title" class="panel__title">入力</h2>
+              <p class="panel__subtitle">上から順に。未入力の任意項目は出力に出ません。</p>
             </div>
-            <span class="badge badge--soft">任意項目は空でもOK</span>
+            <span class="badge badge--soft">下にスクロールして全項目へ</span>
           </div>
 
           <div class="sheet">
@@ -196,7 +209,7 @@
                 </div>
               </div>
               <div class="field field--presets" data-preset="strengths">
-                <label for="strengths">得意な貢献・強み<span class="hint">必須 · 3択＋自由記述</span></label>
+                <label for="strengths">得意な貢献・強み<span class="hint">必須</span></label>
                 <textarea id="strengths" placeholder="例：曖昧な課題を構造化して、合意形成まで伴走します。"></textarea>
               </div>
             </div>
@@ -221,14 +234,14 @@
                 </div>
               </div>
               <div class="field field--presets" data-preset="decisionStyle">
-                <label for="decisionStyle">意思決めの進め方<span class="hint">推奨 · 3択＋自由記述</span></label>
+                <label for="decisionStyle">意思決めの進め方<span class="hint">推奨</span></label>
                 <textarea
                   id="decisionStyle"
                   placeholder="例：叩き台が早いほど思考が進みます。意思決めは根拠リンク付きだと安心です。"
                 ></textarea>
               </div>
               <div class="field field--presets" data-preset="focusHours">
-                <label for="focusHours">集中しやすい時間帯<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="focusHours">集中しやすい時間帯<span class="hint">任意</span></label>
                 <input id="focusHours" type="text" placeholder="例：午前は深掘り、午後は会議多めでもOK" />
               </div>
             </div>
@@ -259,19 +272,19 @@
                 </div>
               </div>
               <div class="field field--presets" data-preset="channels">
-                <label for="channels">連絡チャネルの優先順位<span class="hint">推奨 · 3択＋自由記述</span></label>
+                <label for="channels">連絡チャネルの優先順位<span class="hint">推奨</span></label>
                 <textarea id="channels" placeholder="例：チャット→（必要なら）短い通話→メールで確定"></textarea>
               </div>
               <div class="field field--presets" data-preset="responseSLA">
-                <label for="responseSLA">返信の目安<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="responseSLA">返信の目安<span class="hint">任意</span></label>
                 <input id="responseSLA" type="text" placeholder="例：通常24h以内に一次返信。緊急はチャットで@。" />
               </div>
               <div class="field field--presets" data-preset="meetingPrefs">
-                <label for="meetingPrefs">会議の好み<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="meetingPrefs">会議の好み<span class="hint">任意</span></label>
                 <textarea id="meetingPrefs" placeholder="例：アジェンダがあると幸せ。結論先出しが好きです。"></textarea>
               </div>
               <div class="field field--presets" data-preset="commStyle">
-                <label for="commStyle">文章 vs 口頭<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="commStyle">文章 vs 口頭<span class="hint">任意</span></label>
                 <input id="commStyle" type="text" placeholder="例：複雑系は口頭、合意事項は文章で残したい" />
               </div>
             </div>
@@ -303,11 +316,11 @@
                 </div>
               </div>
               <div class="field field--presets" data-preset="feedbackGood">
-                <label for="feedbackGood">受け取りやすいフィードバック<span class="hint">推奨 · 3択＋自由記述</span></label>
+                <label for="feedbackGood">受け取りやすいフィードバック<span class="hint">推奨</span></label>
                 <textarea id="feedbackGood" placeholder="例：具体例つきだと改善が早いです。"></textarea>
               </div>
               <div class="field field--presets" data-preset="feedbackStress">
-                <label for="feedbackStress">ストレスになりやすい伝え方<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="feedbackStress">ストレスになりやすい伝え方<span class="hint">任意</span></label>
                 <textarea id="feedbackStress" placeholder="例：人格に見える表現は避けてほしいです。"></textarea>
               </div>
             </div>
@@ -346,11 +359,11 @@
                 </div>
               </div>
               <div class="field field--presets" data-preset="misunderstood">
-                <label for="misunderstood">誤解されがちな点<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="misunderstood">誤解されがちな点<span class="hint">任意</span></label>
                 <textarea id="misunderstood" placeholder="例：沈黙＝不満ではなく、整理していることが多いです。"></textarea>
               </div>
               <div class="field field--presets" data-preset="helpMe">
-                <label for="helpMe">こうされると助かる<span class="hint">推奨 · 3択＋自由記述</span></label>
+                <label for="helpMe">こうされると助かる<span class="hint">推奨</span></label>
                 <textarea id="helpMe" placeholder="例：背景目的を1行で共有してくれると最高です。"></textarea>
               </div>
             </div>
@@ -378,23 +391,23 @@
                 さらに詳しく（任意）
               </summary>
               <div class="field field--presets" data-preset="avoidRoles">
-                <label for="avoidRoles">苦手／避けたい役割<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="avoidRoles">苦手／避けたい役割<span class="hint">任意</span></label>
                 <textarea id="avoidRoles" placeholder="例：細かい手作業の連続は得意ではありません。"></textarea>
               </div>
               <div class="field field--presets" data-preset="energizers">
-                <label for="energizers">エネルギーが上がること<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="energizers">エネルギーが上がること<span class="hint">任意</span></label>
                 <textarea id="energizers" placeholder="例：ユーザー課題が数字で改善したとき。"></textarea>
               </div>
               <div class="field field--presets" data-preset="stressful">
-                <label for="stressful">消耗しやすいこと<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="stressful">消耗しやすいこと<span class="hint">任意</span></label>
                 <textarea id="stressful" placeholder="例：目的が曖昧なままの多人数会議。"></textarea>
               </div>
               <div class="field field--presets" data-preset="boundaries">
-                <label for="boundaries">連絡・時間の境界<span class="hint">任意 · 3択＋自由記述</span></label>
+                <label for="boundaries">連絡・時間の境界<span class="hint">任意</span></label>
                 <textarea id="boundaries" placeholder="例：休日は原則非同期。緊急はチャットのみ。"></textarea>
               </div>
               <div class="field field--presets" data-preset="footerNote">
-                <label for="footerNote">フッター注記（任意）<span class="hint">3択＋自由記述</span></label>
+                <label for="footerNote">フッター注記<span class="hint">任意</span></label>
                 <input id="footerNote" type="text" placeholder="例：共有範囲：社内／更新：四半期ごと" />
               </div>
             </details>
@@ -485,9 +498,9 @@
             </span>
             <div>
               <h2 id="preview-title" class="panel__title">プレビュー</h2>
-              <p class="panel__subtitle">出力と同じレイアウト（1920×1080）</p>
+              <p class="panel__subtitle">保存される見た目（スライド1枚相当）</p>
             </div>
-            <span class="badge">PREVIEW</span>
+            <span class="badge badge--preview">プレビュー</span>
           </div>
 
           <div class="preview-scale">
@@ -564,6 +577,6 @@
       </footer>
     </main>
 
-    <script type="module" src="./app.js?v=20260218"></script>
+    <script type="module" src="./app.js?v=20260219"></script>
   </body>
 </html>

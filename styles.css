@@ -910,6 +910,86 @@ details.advanced summary::-webkit-details-marker {
   }
 }
 
+/* 3択プリセット + 自由記述（app.js injectPresets） */
+.field--presets .preset-host {
+  margin: 10px 0 12px;
+}
+
+.preset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  .preset-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.preset-card {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding: 12px 12px 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.preset-card:hover {
+  border-color: rgba(191, 0, 0, 0.22);
+  box-shadow: 0 14px 36px rgba(10, 12, 18, 0.12);
+}
+
+.preset-card:has(input:checked) {
+  border-color: rgba(191, 0, 0, 0.45);
+  box-shadow: var(--ring), 0 14px 36px rgba(10, 12, 18, 0.1);
+}
+
+.preset-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+.preset-card input[type="radio"]:focus-visible ~ .preset-card__title {
+  outline: 2px solid var(--rk-red);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.preset-card__title {
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.preset-card__body {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.preset-free-hint {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--muted);
+  background: rgba(191, 0, 0, 0.06);
+  border: 1px solid rgba(191, 0, 0, 0.12);
+}
+
 @keyframes chrome-sheen {
   0%,
   100% {

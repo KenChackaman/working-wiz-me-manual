@@ -37,6 +37,140 @@ const fields = [
   "footerNote",
 ];
 
+/** 各項目: 3つの候補（本文）＋下の自由記述欄を結合してプレビュー／出力に反映 */
+const PRESETS = {
+  strengths: {
+    title: "得意な貢献・強み",
+    options: [
+      { v: "0", label: "構造化・合意形成", body: "曖昧な課題を構造化し、関係者の合意形成まで伴走します。" },
+      { v: "1", label: "プロセス改善", body: "手戻りを減らす仕組みづくりと、測定できる改善が得意です。" },
+      { v: "2", label: "ステークホルダ調整", body: "利害が分かれる状況でも、前に進む対話を設計するのが得意です。" },
+    ],
+  },
+  decisionStyle: {
+    title: "意思決めの進め方",
+    options: [
+      { v: "0", label: "叩き台駆動", body: "まず叩き台を早く出し、そこから議論を収束させるのが早いです。" },
+      { v: "1", label: "根拠リンク派", body: "意思決めは根拠リンク付きだと安心し、判断が早くなります。" },
+      { v: "2", label: "小さく試す", body: "不確実性が高いときは小さく試して学び、段階的に確度を上げます。" },
+    ],
+  },
+  focusHours: {
+    title: "集中しやすい時間帯",
+    options: [
+      { v: "0", label: "午前深掘り", body: "午前は深掘り作業向き。午後は会議やレビューが多くても問題ありません。" },
+      { v: "1", label: "午後ブロック", body: "午後にまとまった集中ブロックを確保すると、成果が出やすいです。" },
+      { v: "2", label: "非同期中心", body: "非同期で整理し、必要なときだけ短時間で同期します。" },
+    ],
+  },
+  channels: {
+    title: "連絡チャネルの優先順位",
+    options: [
+      { v: "0", label: "チャット優先", body: "基本はチャット→必要なら短い通話→合意事項はメールで残します。" },
+      { v: "1", label: "メール優先", body: "記録が必要なものはメール、急ぎはチャットで一次連絡します。" },
+      { v: "2", label: "カレンダー駆動", body: "日程調整はカレンダー、議論は会議、確定はチャット／メールです。" },
+    ],
+  },
+  responseSLA: {
+    title: "返信の目安",
+    options: [
+      { v: "0", label: "24h一次返信", body: "通常は24時間以内に一次返信します。緊急はチャットで@ください。" },
+      { v: "1", label: "営業日内", body: "営業日ベースで返します。週末は原則翌営業日扱いです。" },
+      { v: "2", label: "週次まとめ", body: "軽微なものは週次でまとめ返信、緊急のみ即日対応します。" },
+    ],
+  },
+  meetingPrefs: {
+    title: "会議の好み",
+    options: [
+      { v: "0", label: "アジェンダ必須", body: "アジェンダと目的が明確だと参加の質が上がります。" },
+      { v: "1", label: "結論先出し", body: "結論→理由→次アクションの順が読みやすく好みです。" },
+      { v: "2", label: "短時間・少人数", body: "短時間・少人数のほうが意思決めが速いです。" },
+    ],
+  },
+  commStyle: {
+    title: "文章 vs 口頭",
+    options: [
+      { v: "0", label: "複雑は口頭", body: "複雑系は口頭で擦り合わせ、合意事項は文章で残したいです。" },
+      { v: "1", label: "文章で整理", body: "まず文章で整理してから会話に入ると、認識が揃いやすいです。" },
+      { v: "2", label: "図・表が得意", body: "図・表があると理解が早いです（ホワイトボード派）。" },
+    ],
+  },
+  feedbackGood: {
+    title: "受け取りやすいフィードバック",
+    options: [
+      { v: "0", label: "具体例つき", body: "具体例つきだと改善が早く、行動に落とし込みやすいです。" },
+      { v: "1", label: "意図の共有", body: "意図（なぜそう思うか）が分かると受け取りやすいです。" },
+      { v: "2", label: "小さく頻度", body: "大きな一発より、小さく頻度があるほうが伸びます。" },
+    ],
+  },
+  feedbackStress: {
+    title: "ストレスになりやすい伝え方",
+    options: [
+      { v: "0", label: "人格に見える表現", body: "人格に見える表現は避けてほしいです（行動・事実ベースが助かります）。" },
+      { v: "1", label: "曖昧な一言", body: "「なんとなく」だけだと改善点が掴みにくく消耗します。" },
+      { v: "2", label: "公開での指摘", body: "指摘は基本1on1希望です（公開は例外）。" },
+    ],
+  },
+  misunderstood: {
+    title: "誤解されがちな点",
+    options: [
+      { v: "0", label: "沈黙＝不満ではない", body: "沈黙＝不満ではなく、整理・考え込みのことが多いです。" },
+      { v: "1", label: "質問が多い", body: "質問が多いのは詰めではなく、手戻りを減らすためです。" },
+      { v: "2", label: "スピード感", body: "速く見えることがありますが、重要論点は抜けないよう確認します。" },
+    ],
+  },
+  helpMe: {
+    title: "こうされると助かる",
+    options: [
+      { v: "0", label: "背景1行", body: "背景目的を1行で共有してくれると、着手が速いです。" },
+      { v: "1", label: "期待アウトカム", body: "期待アウトカム（何ができればOKか）があると迷いません。" },
+      { v: "2", label: "期限の明示", body: "期限と優先度が分かると、調整がしやすいです。" },
+    ],
+  },
+  avoidRoles: {
+    title: "苦手／避けたい役割",
+    options: [
+      { v: "0", label: "細かい手作業連続", body: "細かい手作業の連続は得意ではありません（自動化したい）。" },
+      { v: "1", label: "単独常駐", body: "単独常駐のオペレーション中心は避けたいです。" },
+      { v: "2", label: "目的不明の長会議", body: "目的が曖昧な長会議はエネルギー消費が大きいです。" },
+    ],
+  },
+  energizers: {
+    title: "エネルギーが上がること",
+    options: [
+      { v: "0", label: "ユーザー課題の改善", body: "ユーザー課題が数字で改善したときに一番やる気が出ます。" },
+      { v: "1", label: "チームで越える壁", body: "チームで難しい壁を越えた瞬間が好きです。" },
+      { v: "2", label: "学びの循環", body: "学びを言語化して共有できる文化があると伸びます。" },
+    ],
+  },
+  stressful: {
+    title: "消耗しやすいこと",
+    options: [
+      { v: "0", label: "目的なき多人数会議", body: "目的が曖昧なままの多人数会議は消耗しやすいです。" },
+      { v: "1", label: "頻繁な文脈切替", body: "短時間で文脈切替が続くと疲れやすいです。" },
+      { v: "2", label: "曖昧な優先度", body: "優先度が曖昧なまま並走が増えるとストレスが上がります。" },
+    ],
+  },
+  boundaries: {
+    title: "連絡・時間の境界",
+    options: [
+      { v: "0", label: "休日は非同期", body: "休日は原則非同期。緊急はチャットのみでお願いします。" },
+      { v: "1", label: "夜は翌朝", body: "夜間の連絡は翌朝まとめて見ることが多いです（緊急は別ルール）。" },
+      { v: "2", label: "家族時間を確保", body: "家族時間を確保する日は、返信が遅れることがあります。" },
+    ],
+  },
+  footerNote: {
+    title: "フッター注記",
+    options: [
+      { v: "0", label: "社内共有", body: "共有範囲：社内／更新：四半期ごと" },
+      { v: "1", label: "チーム限定", body: "共有範囲：チーム内／更新：プロジェクト完了まで" },
+      { v: "2", label: "自己管理", body: "この文書は自己管理用。配布は都度確認します。" },
+    ],
+  },
+};
+
+const PRESET_FIELD_IDS = /** @type {string[]} */ (Object.keys(PRESETS));
+
 const STORAGE_KEY = "working-with-me-form-v1";
 
 function readForm() {
@@ -47,6 +181,85 @@ function readForm() {
     data[id] = (el?.value ?? "").trim();
   }
   return data;
+}
+
+/** @param {string} fieldId */
+function mergePresetField(fieldId, freeRaw) {
+  const pr = PRESETS[fieldId];
+  if (!pr) return (freeRaw || "").trim();
+  const checked = /** @type {HTMLInputElement | null} */ (
+    document.querySelector(`input[name="${fieldId}_preset"]:checked`)
+  );
+  let presetBody = "";
+  if (checked) {
+    const opt = pr.options.find((o) => o.v === checked.value);
+    if (opt) presetBody = String(opt.body || "").trim();
+  }
+  const free = (freeRaw || "").trim();
+  if (presetBody && free) return `${presetBody}\n\n${free}`;
+  return presetBody || free;
+}
+
+function readEffectiveForm() {
+  const raw = readForm();
+  /** @type {Record<string, string>} */
+  const d = { ...raw };
+  for (const id of PRESET_FIELD_IDS) {
+    d[id] = mergePresetField(id, raw[id]);
+  }
+  return d;
+}
+
+function collectPersistedState() {
+  const data = readForm();
+  for (const id of PRESET_FIELD_IDS) {
+    const c = /** @type {HTMLInputElement | null} */ (document.querySelector(`input[name="${id}_preset"]:checked`));
+    data[`${id}_preset`] = c ? c.value : "";
+  }
+  return data;
+}
+
+function injectPresets() {
+  for (const el of document.querySelectorAll("[data-preset]")) {
+    const id = el.getAttribute("data-preset");
+    if (!id || !PRESETS[id] || el.querySelector(".preset-host")) continue;
+    const pr = PRESETS[id];
+    const label = el.querySelector("label");
+    const control = el.querySelector("textarea, input[type=text]");
+    if (!label || !control) continue;
+
+    const host = document.createElement("div");
+    host.className = "preset-host";
+
+    const grid = document.createElement("div");
+    grid.className = "preset-grid";
+    grid.setAttribute("role", "radiogroup");
+    grid.setAttribute("aria-label", `${pr.title}の候補から選択`);
+
+    for (const opt of pr.options) {
+      const card = document.createElement("label");
+      card.className = "preset-card";
+      const inp = document.createElement("input");
+      inp.type = "radio";
+      inp.name = `${id}_preset`;
+      inp.value = opt.v;
+      const t = document.createElement("span");
+      t.className = "preset-card__title";
+      t.textContent = opt.label;
+      const b = document.createElement("span");
+      b.className = "preset-card__body";
+      b.textContent = opt.body;
+      card.append(inp, t, b);
+      grid.appendChild(card);
+    }
+
+    const hint = document.createElement("p");
+    hint.className = "preset-free-hint";
+    hint.textContent = "自由記述（任意）：候補に足したい具体例・例外・条件を追記できます。";
+
+    host.append(grid, hint);
+    label.insertAdjacentElement("afterend", host);
+  }
 }
 
 function joinBlocks(lines) {
@@ -64,7 +277,7 @@ function setText(id, text, fallback = "（未入力）") {
 }
 
 function updatePreview() {
-  const d = readForm();
+  const d = readEffectiveForm();
 
   setText("pvName", d.displayName, "（表示名）");
   setText("pvDept", d.department, "（所属）");
@@ -115,7 +328,7 @@ function updatePreview() {
 
 function saveLocal() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(readForm()));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(collectPersistedState()));
   } catch {
     // ignore
   }
@@ -132,17 +345,24 @@ function loadLocal() {
       const v = data[id];
       if (typeof v === "string") el.value = v;
     }
+    for (const id of PRESET_FIELD_IDS) {
+      const key = `${id}_preset`;
+      if (!(key in data)) continue;
+      const v = data[key];
+      const radio = document.querySelector(`input[name="${id}_preset"][value="${String(v)}"]`);
+      if (radio) /** @type {HTMLInputElement} */ (radio).checked = true;
+    }
   } catch {
     // ignore
   }
 }
 
 function validateRequired() {
-  const d = readForm();
+  const d = readEffectiveForm();
   const missing = [];
   if (!d.displayName) missing.push("表示名");
   if (!d.department) missing.push("所属");
-  if (!d.strengths) missing.push("得意な貢献・強み");
+  if (!d.strengths) missing.push("得意な貢献・強み（候補の選択または自由記述）");
   return missing;
 }
 
@@ -244,7 +464,7 @@ function exportPptx() {
     return;
   }
 
-  const d = readForm();
+  const d = readEffectiveForm();
   updatePreview();
 
   const pptx = new PptxGenJS();
@@ -386,6 +606,9 @@ function resetForm() {
     const el = /** @type {HTMLInputElement | HTMLTextAreaElement | null} */ (document.getElementById(id));
     if (el) el.value = "";
   }
+  document.querySelectorAll('input[type="radio"][name$="_preset"]').forEach((r) => {
+    /** @type {HTMLInputElement} */ (r).checked = false;
+  });
   try {
     localStorage.removeItem(STORAGE_KEY);
   } catch {
@@ -396,15 +619,21 @@ function resetForm() {
 }
 
 function wire() {
+  const onChange = () => {
+    updatePreview();
+    saveLocal();
+    setStatus("");
+  };
+
   for (const id of fields) {
     const el = document.getElementById(id);
     if (!el) continue;
-    el.addEventListener("input", () => {
-      updatePreview();
-      saveLocal();
-      setStatus("");
-    });
+    el.addEventListener("input", onChange);
   }
+
+  document.querySelectorAll('input[type="radio"][name$="_preset"]').forEach((r) => {
+    r.addEventListener("change", onChange);
+  });
 
   $("btnPng")?.addEventListener("click", () => void exportPng());
   $("btnPptx")?.addEventListener("click", () => {
@@ -439,6 +668,7 @@ function setupPreviewScaling() {
   }
 }
 
+injectPresets();
 loadLocal();
 wire();
 updatePreview();

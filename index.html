@@ -30,7 +30,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260217" />
+    <link rel="stylesheet" href="./styles.css?v=20260218" />
   </head>
   <body>
     <a class="skip-link" href="#main">本文へスキップ</a>
@@ -195,8 +195,8 @@
                   <h3 class="sheet__title">得意・貢献</h3>
                 </div>
               </div>
-              <div class="field">
-                <label for="strengths">得意な貢献・強み<span class="hint">必須</span></label>
+              <div class="field field--presets" data-preset="strengths">
+                <label for="strengths">得意な貢献・強み<span class="hint">必須 · 3択＋自由記述</span></label>
                 <textarea id="strengths" placeholder="例：曖昧な課題を構造化して、合意形成まで伴走します。"></textarea>
               </div>
             </div>
@@ -220,15 +220,15 @@
                   <h3 class="sheet__title">意思決め・集中</h3>
                 </div>
               </div>
-              <div class="field">
-                <label for="decisionStyle">意思決めの進め方<span class="hint">推奨</span></label>
+              <div class="field field--presets" data-preset="decisionStyle">
+                <label for="decisionStyle">意思決めの進め方<span class="hint">推奨 · 3択＋自由記述</span></label>
                 <textarea
                   id="decisionStyle"
                   placeholder="例：叩き台が早いほど思考が進みます。意思決めは根拠リンク付きだと安心です。"
                 ></textarea>
               </div>
-              <div class="field">
-                <label for="focusHours">集中しやすい時間帯<span class="hint">任意</span></label>
+              <div class="field field--presets" data-preset="focusHours">
+                <label for="focusHours">集中しやすい時間帯<span class="hint">任意 · 3択＋自由記述</span></label>
                 <input id="focusHours" type="text" placeholder="例：午前は深掘り、午後は会議多めでもOK" />
               </div>
             </div>
@@ -258,20 +258,20 @@
                   <h3 class="sheet__title">コミュニケーション</h3>
                 </div>
               </div>
-              <div class="field">
-                <label for="channels">連絡チャネルの優先順位<span class="hint">推奨</span></label>
+              <div class="field field--presets" data-preset="channels">
+                <label for="channels">連絡チャネルの優先順位<span class="hint">推奨 · 3択＋自由記述</span></label>
                 <textarea id="channels" placeholder="例：チャット→（必要なら）短い通話→メールで確定"></textarea>
               </div>
-              <div class="field">
-                <label for="responseSLA">返信の目安<span class="hint">任意</span></label>
+              <div class="field field--presets" data-preset="responseSLA">
+                <label for="responseSLA">返信の目安<span class="hint">任意 · 3択＋自由記述</span></label>
                 <input id="responseSLA" type="text" placeholder="例：通常24h以内に一次返信。緊急はチャットで@。" />
               </div>
-              <div class="field">
-                <label for="meetingPrefs">会議の好み<span class="hint">任意</span></label>
+              <div class="field field--presets" data-preset="meetingPrefs">
+                <label for="meetingPrefs">会議の好み<span class="hint">任意 · 3択＋自由記述</span></label>
                 <textarea id="meetingPrefs" placeholder="例：アジェンダがあると幸せ。結論先出しが好きです。"></textarea>
               </div>
-              <div class="field">
-                <label for="commStyle">文章 vs 口頭<span class="hint">任意</span></label>
+              <div class="field field--presets" data-preset="commStyle">
+                <label for="commStyle">文章 vs 口頭<span class="hint">任意 · 3択＋自由記述</span></label>
                 <input id="commStyle" type="text" placeholder="例：複雑系は口頭、合意事項は文章で残したい" />
               </div>
             </div>
@@ -302,12 +302,12 @@
                   <h3 class="sheet__title">フィードバック</h3>
                 </div>
               </div>
-              <div class="field">
-                <label for="feedbackGood">受け取りやすいフィードバック<span class="hint">推奨</span></label>
+              <div class="field field--presets" data-preset="feedbackGood">
+                <label for="feedbackGood">受け取りやすいフィードバック<span class="hint">推奨 · 3択＋自由記述</span></label>
                 <textarea id="feedbackGood" placeholder="例：具体例つきだと改善が早いです。"></textarea>
               </div>
-              <div class="field">
-                <label for="feedbackStress">ストレスになりやすい伝え方<span class="hint">任意</span></label>
+              <div class="field field--presets" data-preset="feedbackStress">
+                <label for="feedbackStress">ストレスになりやすい伝え方<span class="hint">任意 · 3択＋自由記述</span></label>
                 <textarea id="feedbackStress" placeholder="例：人格に見える表現は避けてほしいです。"></textarea>
               </div>
             </div>
@@ -345,12 +345,12 @@
                   <h3 class="sheet__title">協働のコツ</h3>
                 </div>
               </div>
-              <div class="field">
-                <label for="misunderstood">誤解されがちな点<span class="hint">任意</span></label>
+              <div class="field field--presets" data-preset="misunderstood">
+                <label for="misunderstood">誤解されがちな点<span class="hint">任意 · 3択＋自由記述</span></label>
                 <textarea id="misunderstood" placeholder="例：沈黙＝不満ではなく、整理していることが多いです。"></textarea>
               </div>
-              <div class="field">
-                <label for="helpMe">こうされると助かる<span class="hint">推奨</span></label>
+              <div class="field field--presets" data-preset="helpMe">
+                <label for="helpMe">こうされると助かる<span class="hint">推奨 · 3択＋自由記述</span></label>
                 <textarea id="helpMe" placeholder="例：背景目的を1行で共有してくれると最高です。"></textarea>
               </div>
             </div>
@@ -377,24 +377,24 @@
                 </span>
                 さらに詳しく（任意）
               </summary>
-              <div class="field">
-                <label for="avoidRoles">苦手／避けたい役割</label>
+              <div class="field field--presets" data-preset="avoidRoles">
+                <label for="avoidRoles">苦手／避けたい役割<span class="hint">任意 · 3択＋自由記述</span></label>
                 <textarea id="avoidRoles" placeholder="例：細かい手作業の連続は得意ではありません。"></textarea>
               </div>
-              <div class="field">
-                <label for="energizers">エネルギーが上がること</label>
+              <div class="field field--presets" data-preset="energizers">
+                <label for="energizers">エネルギーが上がること<span class="hint">任意 · 3択＋自由記述</span></label>
                 <textarea id="energizers" placeholder="例：ユーザー課題が数字で改善したとき。"></textarea>
               </div>
-              <div class="field">
-                <label for="stressful">消耗しやすいこと</label>
+              <div class="field field--presets" data-preset="stressful">
+                <label for="stressful">消耗しやすいこと<span class="hint">任意 · 3択＋自由記述</span></label>
                 <textarea id="stressful" placeholder="例：目的が曖昧なままの多人数会議。"></textarea>
               </div>
-              <div class="field">
-                <label for="boundaries">連絡・時間の境界</label>
+              <div class="field field--presets" data-preset="boundaries">
+                <label for="boundaries">連絡・時間の境界<span class="hint">任意 · 3択＋自由記述</span></label>
                 <textarea id="boundaries" placeholder="例：休日は原則非同期。緊急はチャットのみ。"></textarea>
               </div>
-              <div class="field">
-                <label for="footerNote">フッター注記（任意）</label>
+              <div class="field field--presets" data-preset="footerNote">
+                <label for="footerNote">フッター注記（任意）<span class="hint">3択＋自由記述</span></label>
                 <input id="footerNote" type="text" placeholder="例：共有範囲：社内／更新：四半期ごと" />
               </div>
             </details>
@@ -564,6 +564,6 @@
       </footer>
     </main>
 
-    <script type="module" src="./app.js?v=20260217"></script>
+    <script type="module" src="./app.js?v=20260218"></script>
   </body>
 </html>

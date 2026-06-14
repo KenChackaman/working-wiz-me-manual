@@ -23,134 +23,469 @@
       name="description"
       content="Working with me — 1枚PNGとPowerPointをブラウザだけで作成（データは外部送信しません）"
     />
+    <link rel="icon" href="./assets/favicon.svg?v=20260216c" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260214b" />
+    <link rel="stylesheet" href="./styles.css?v=20260216c" />
   </head>
   <body>
-    <div class="page">
-      <header class="hero">
-        <h1>私の取扱説明書ジェネレーター</h1>
-        <p>
-          チームがあなたと一緒に働くときの「読み物」を1枚にまとめ、PNGとPowerPointで出力します。入力内容はこのPCのブラウザ内だけで処理されます。
-        </p>
-        <p class="cache-hint">
-          画面が古いままのときは <strong>強制再読み込み</strong>（Windows: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> /
-          Mac: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>）を試してください。
-        </p>
-      </header>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <header class="site-chrome" role="banner">
+      <div class="site-chrome__inner">
+        <div class="brand-lockup" aria-label="楽天（簡易表現。公式ロゴではありません）">
+          <img class="brand-lockup__mark" src="./assets/mark.svg?v=20260216c" width="36" height="36" alt="" />
+          <div class="brand-lockup__text">
+            <div class="brand-lockup__ja">楽天</div>
+            <div class="brand-lockup__en">Rakuten</div>
+          </div>
+          <div class="brand-lockup__divider" aria-hidden="true"></div>
+          <div class="brand-lockup__product">
+            <div class="brand-lockup__product-title">私の取扱説明書</div>
+            <div class="brand-lockup__product-sub">Working with me</div>
+          </div>
+        </div>
+
+        <div class="site-chrome__meta">
+          <span class="pill pill--dark">
+            <svg class="pill__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 3l7 4v5c0 5-3 9-7 11-4-2-7-6-7-11V7l7-4z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+            </svg>
+            完全ローカル処理
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main class="page" id="main">
+      <section class="hero hero--glass" aria-labelledby="hero-title">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <p class="hero__eyebrow">A&amp;Mカンパニー向け · チーム浸透用ツール</p>
+            <h1 id="hero-title" class="hero__title">私の取扱説明書ジェネレーター</h1>
+            <p class="hero__lead">
+              仕事の進め方・コミュニケーションの好みを1枚に整理し、<strong>PNG</strong> と <strong>PowerPoint</strong> で配布できます。
+            </p>
+            <ul class="hero__bullets" aria-label="特徴">
+              <li>入力はブラウザ内だけ（外部サーバーに送信しません）</li>
+              <li>楽天らしい赤を基調にした画面（簡易トンマナ）</li>
+              <li>更新しやすい「生きたガイド」として運用できます</li>
+            </ul>
+            <p class="hero__legal">
+              画面上の「楽天／Rakuten」表記とマークは <strong>社内向けの簡易表現</strong>です。公式ロゴや厳密な配色は
+              <strong>Rakuten Brand &amp; ReX Guidelines</strong> に従って差し替えてください。
+            </p>
+            <p class="cache-hint">
+              表示が古いときは <strong>強制再読み込み</strong>（Windows: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> /
+              Mac: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>）
+            </p>
+          </div>
+
+          <aside class="hero__panel" aria-label="クイックガイド">
+            <div class="hero__panel-title">このツールの目的</div>
+            <ol class="hero__steps">
+              <li>自分の「協力のためのガイド」を言語化する</li>
+              <li>チームが迷子にならない“前提”を短く共有する</li>
+              <li>対話の入口をつくる（要求リストではない）</li>
+            </ol>
+            <div class="hero__panel-foot">
+              <span class="mini-badge">TIP</span>
+              まずは必須だけ埋めて、あとから育てるのがおすすめです。
+            </div>
+          </aside>
+        </div>
+      </section>
 
       <div class="layout">
-        <section class="panel">
-          <h2>入力 <span class="badge">LOCAL ONLY</span></h2>
-
-          <div class="field">
-            <label for="displayName">表示名（氏名）<span class="hint">必須</span></label>
-            <input id="displayName" type="text" autocomplete="name" placeholder="例：楽天 太郎" />
-          </div>
-          <div class="field">
-            <label for="department">所属<span class="hint">必須</span></label>
-            <input
-              id="department"
-              type="text"
-              placeholder="例：楽天株式会社 A&amp;Mカンパニー ○○部"
-            />
-          </div>
-          <div class="field">
-            <label for="role">役職／ロール<span class="hint">任意</span></label>
-            <input id="role" type="text" placeholder="例：プロダクトマネージャー" />
-          </div>
-
-          <div class="field">
-            <label for="strengths">得意な貢献・強み<span class="hint">必須</span></label>
-            <textarea id="strengths" placeholder="例：曖昧な課題を構造化して、合意形成まで伴走します。"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="decisionStyle">意思決めの進め方<span class="hint">推奨</span></label>
-            <textarea
-              id="decisionStyle"
-              placeholder="例：叩き台が早いほど思考が進みます。意思決めは根拠リンク付きだと安心です。"
-            ></textarea>
-          </div>
-          <div class="field">
-            <label for="focusHours">集中しやすい時間帯<span class="hint">任意</span></label>
-            <input id="focusHours" type="text" placeholder="例：午前は深掘り、午後は会議多めでもOK" />
-          </div>
-
-          <div class="field">
-            <label for="channels">連絡チャネルの優先順位<span class="hint">推奨</span></label>
-            <textarea id="channels" placeholder="例：チャット→（必要なら）短い通話→メールで確定"></textarea>
-          </div>
-          <div class="field">
-            <label for="responseSLA">返信の目安<span class="hint">任意</span></label>
-            <input id="responseSLA" type="text" placeholder="例：通常24h以内に一次返信。緊急はチャットで@。" />
-          </div>
-          <div class="field">
-            <label for="meetingPrefs">会議の好み<span class="hint">任意</span></label>
-            <textarea id="meetingPrefs" placeholder="例：アジェンダがあると幸せ。結論先出しが好きです。"></textarea>
-          </div>
-          <div class="field">
-            <label for="commStyle">文章 vs 口頭<span class="hint">任意</span></label>
-            <input id="commStyle" type="text" placeholder="例：複雑系は口頭、合意事項は文章で残したい" />
-          </div>
-
-          <div class="field">
-            <label for="feedbackGood">受け取りやすいフィードバック<span class="hint">推奨</span></label>
-            <textarea id="feedbackGood" placeholder="例：具体例つきだと改善が早いです。"></textarea>
-          </div>
-          <div class="field">
-            <label for="feedbackStress">ストレスになりやすい伝え方<span class="hint">任意</span></label>
-            <textarea id="feedbackStress" placeholder="例：人格に見える表現は避けてほしいです。"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="misunderstood">誤解されがちな点<span class="hint">任意</span></label>
-            <textarea id="misunderstood" placeholder="例：沈黙＝不満ではなく、整理していることが多いです。"></textarea>
-          </div>
-          <div class="field">
-            <label for="helpMe">こうされると助かる<span class="hint">推奨</span></label>
-            <textarea id="helpMe" placeholder="例：背景目的を1行で共有してくれると最高です。"></textarea>
-          </div>
-
-          <details class="advanced">
-            <summary>さらに詳しく（任意）</summary>
-            <div class="field">
-              <label for="avoidRoles">苦手／避けたい役割</label>
-              <textarea id="avoidRoles" placeholder="例：細かい手作業の連続は得意ではありません。"></textarea>
+        <section class="panel panel--sheet" aria-labelledby="form-title">
+          <div class="panel__head">
+            <span class="panel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M7 8h10M7 12h10M7 16h6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M6 4h12a2 2 0 0 1 2 2v14l-4-3H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <div>
+              <h2 id="form-title" class="panel__title">入力シート</h2>
+              <p class="panel__subtitle">LOCAL ONLY · ブラウザ内で完結</p>
             </div>
-            <div class="field">
-              <label for="energizers">エネルギーが上がること</label>
-              <textarea id="energizers" placeholder="例：ユーザー課題が数字で改善したとき。"></textarea>
+            <span class="badge badge--soft">任意項目は空でもOK</span>
+          </div>
+
+          <div class="sheet">
+            <div class="sheet__section">
+              <div class="sheet__head">
+                <span class="sheet__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.8" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="sheet__kicker">Profile</p>
+                  <h3 class="sheet__title">基本情報</h3>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="displayName">表示名（氏名）<span class="hint">必須</span></label>
+                <input id="displayName" type="text" autocomplete="name" placeholder="例：楽天 太郎" />
+              </div>
+              <div class="field">
+                <label for="department">所属<span class="hint">必須</span></label>
+                <input
+                  id="department"
+                  type="text"
+                  placeholder="例：楽天株式会社 A&amp;Mカンパニー ○○部"
+                />
+              </div>
+              <div class="field">
+                <label for="role">役職／ロール<span class="hint">任意</span></label>
+                <input id="role" type="text" placeholder="例：プロダクトマネージャー" />
+              </div>
             </div>
-            <div class="field">
-              <label for="stressful">消耗しやすいこと</label>
-              <textarea id="stressful" placeholder="例：目的が曖昧なままの多人数会議。"></textarea>
+
+            <div class="sheet__section">
+              <div class="sheet__head">
+                <span class="sheet__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 3l1.8 5.5H20l-4.5 3.3 1.7 5.2L12 15.2 7.8 17l1.7-5.2L5 8.5h6.2L12 3z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p class="sheet__kicker">Strength</p>
+                  <h3 class="sheet__title">得意・貢献</h3>
+                </div>
+              </div>
+              <div class="field">
+                <label for="strengths">得意な貢献・強み<span class="hint">必須</span></label>
+                <textarea id="strengths" placeholder="例：曖昧な課題を構造化して、合意形成まで伴走します。"></textarea>
+              </div>
             </div>
-            <div class="field">
-              <label for="boundaries">連絡・時間の境界</label>
-              <textarea id="boundaries" placeholder="例：休日は原則非同期。緊急はチャットのみ。"></textarea>
+
+            <div class="sheet__section">
+              <div class="sheet__head">
+                <span class="sheet__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 3v3M12 18v3M4.2 7.8l2.1 2.1M17.7 14.1l2.1 2.1M3 12h3M18 12h3M4.2 16.2l2.1-2.1M17.7 9.9l2.1-2.1"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="sheet__kicker">Focus</p>
+                  <h3 class="sheet__title">意思決め・集中</h3>
+                </div>
+              </div>
+              <div class="field">
+                <label for="decisionStyle">意思決めの進め方<span class="hint">推奨</span></label>
+                <textarea
+                  id="decisionStyle"
+                  placeholder="例：叩き台が早いほど思考が進みます。意思決めは根拠リンク付きだと安心です。"
+                ></textarea>
+              </div>
+              <div class="field">
+                <label for="focusHours">集中しやすい時間帯<span class="hint">任意</span></label>
+                <input id="focusHours" type="text" placeholder="例：午前は深掘り、午後は会議多めでもOK" />
+              </div>
             </div>
-            <div class="field">
-              <label for="footerNote">フッター注記（任意）</label>
-              <input id="footerNote" type="text" placeholder="例：共有範囲：社内／更新：四半期ごと" />
+
+            <div class="sheet__section">
+              <div class="sheet__head">
+                <span class="sheet__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M7 10h10M7 14h7"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M6 6h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p class="sheet__kicker">Comms</p>
+                  <h3 class="sheet__title">コミュニケーション</h3>
+                </div>
+              </div>
+              <div class="field">
+                <label for="channels">連絡チャネルの優先順位<span class="hint">推奨</span></label>
+                <textarea id="channels" placeholder="例：チャット→（必要なら）短い通話→メールで確定"></textarea>
+              </div>
+              <div class="field">
+                <label for="responseSLA">返信の目安<span class="hint">任意</span></label>
+                <input id="responseSLA" type="text" placeholder="例：通常24h以内に一次返信。緊急はチャットで@。" />
+              </div>
+              <div class="field">
+                <label for="meetingPrefs">会議の好み<span class="hint">任意</span></label>
+                <textarea id="meetingPrefs" placeholder="例：アジェンダがあると幸せ。結論先出しが好きです。"></textarea>
+              </div>
+              <div class="field">
+                <label for="commStyle">文章 vs 口頭<span class="hint">任意</span></label>
+                <input id="commStyle" type="text" placeholder="例：複雑系は口頭、合意事項は文章で残したい" />
+              </div>
             </div>
-          </details>
+
+            <div class="sheet__section">
+              <div class="sheet__head">
+                <span class="sheet__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 22c4.5-3.2 7-7.1 7-11.3V7l-7-4-7 4v3.7C5 14.9 7.5 18.8 12 22z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.2 12.3l1.8 1.8 4.6-4.7"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p class="sheet__kicker">Feedback</p>
+                  <h3 class="sheet__title">フィードバック</h3>
+                </div>
+              </div>
+              <div class="field">
+                <label for="feedbackGood">受け取りやすいフィードバック<span class="hint">推奨</span></label>
+                <textarea id="feedbackGood" placeholder="例：具体例つきだと改善が早いです。"></textarea>
+              </div>
+              <div class="field">
+                <label for="feedbackStress">ストレスになりやすい伝え方<span class="hint">任意</span></label>
+                <textarea id="feedbackStress" placeholder="例：人格に見える表現は避けてほしいです。"></textarea>
+              </div>
+            </div>
+
+            <div class="sheet__section">
+              <div class="sheet__head">
+                <span class="sheet__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.7" />
+                    <path
+                      d="M22 21v-2a4 4 0 0 0-3-3.87"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M16 3.13a4 4 0 0 1 0 7.75"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p class="sheet__kicker">Teamwork</p>
+                  <h3 class="sheet__title">協働のコツ</h3>
+                </div>
+              </div>
+              <div class="field">
+                <label for="misunderstood">誤解されがちな点<span class="hint">任意</span></label>
+                <textarea id="misunderstood" placeholder="例：沈黙＝不満ではなく、整理していることが多いです。"></textarea>
+              </div>
+              <div class="field">
+                <label for="helpMe">こうされると助かる<span class="hint">推奨</span></label>
+                <textarea id="helpMe" placeholder="例：背景目的を1行で共有してくれると最高です。"></textarea>
+              </div>
+            </div>
+
+            <details class="advanced">
+              <summary>
+                <span class="advanced__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M4 6h16M8 12h12M10 18h10"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M6 20h2"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                さらに詳しく（任意）
+              </summary>
+              <div class="field">
+                <label for="avoidRoles">苦手／避けたい役割</label>
+                <textarea id="avoidRoles" placeholder="例：細かい手作業の連続は得意ではありません。"></textarea>
+              </div>
+              <div class="field">
+                <label for="energizers">エネルギーが上がること</label>
+                <textarea id="energizers" placeholder="例：ユーザー課題が数字で改善したとき。"></textarea>
+              </div>
+              <div class="field">
+                <label for="stressful">消耗しやすいこと</label>
+                <textarea id="stressful" placeholder="例：目的が曖昧なままの多人数会議。"></textarea>
+              </div>
+              <div class="field">
+                <label for="boundaries">連絡・時間の境界</label>
+                <textarea id="boundaries" placeholder="例：休日は原則非同期。緊急はチャットのみ。"></textarea>
+              </div>
+              <div class="field">
+                <label for="footerNote">フッター注記（任意）</label>
+                <input id="footerNote" type="text" placeholder="例：共有範囲：社内／更新：四半期ごと" />
+              </div>
+            </details>
+          </div>
 
           <div class="actions">
-            <button class="primary" id="btnPng" type="button">PNGを保存（16:9）</button>
-            <button class="secondary" id="btnPptx" type="button">PowerPointを保存</button>
-            <button class="ghost" id="btnReset" type="button">入力をクリア</button>
+            <button class="btn btn--primary" id="btnPng" type="button">
+              <span class="btn__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 3v10M8 9l4 4 4-4M5 21h14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              PNGを保存（16:9）
+            </button>
+            <button class="btn btn--night" id="btnPptx" type="button">
+              <span class="btn__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M7 3h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M14 3v5h5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M9 17h6M9 13h6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              PowerPointを保存
+            </button>
+            <button class="btn btn--ghost" id="btnReset" type="button">
+              <span class="btn__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M4 7h12a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3H8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M8 7V4L4 8l4 4V9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              入力をクリア
+            </button>
           </div>
           <p class="status" id="status"></p>
         </section>
 
-        <section class="panel preview-wrap">
-          <h2>プレビュー（出力と同じレイアウト）</h2>
+        <section class="panel panel--preview preview-wrap" aria-labelledby="preview-title">
+          <div class="panel__head">
+            <span class="panel__icon panel__icon--alt" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M3 12c3-6 7-9 9-9s6 3 9 9c-3 6-7 9-9 9s-6-3-9-9z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                />
+                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.7" />
+              </svg>
+            </span>
+            <div>
+              <h2 id="preview-title" class="panel__title">プレビュー</h2>
+              <p class="panel__subtitle">出力と同じレイアウト（1920×1080）</p>
+            </div>
+            <span class="badge">PREVIEW</span>
+          </div>
+
           <div class="preview-scale">
             <div class="preview-frame" id="previewFrame">
               <div id="exportRoot">
@@ -203,8 +538,20 @@
           </div>
         </section>
       </div>
-    </div>
 
-    <script type="module" src="./app.js?v=20260214b"></script>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <div class="site-footer__brand">
+            <img src="./assets/mark.svg?v=20260216c" width="28" height="28" alt="" />
+            <span>楽天トンマナ（簡易版） / ブラウザ完結ツール</span>
+          </div>
+          <div class="site-footer__note">
+            商標・ロゴの正式利用は社内手順に従ってください（本サイトのマークはオリジナルです）。
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script type="module" src="./app.js?v=20260216c"></script>
   </body>
 </html>

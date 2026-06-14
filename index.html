@@ -2,6 +2,19 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <!-- GitHub Pages: URL が末尾スラッシュ無しだと相対パスが壊れるため、先に base を正す -->
+    <script>
+      (function () {
+        var path = location.pathname || "/";
+        if (!path.endsWith("/")) {
+          if (/\.html?$/i.test(path)) path = path.replace(/\/[^/]*$/i, "/");
+          else path += "/";
+        }
+        var b = document.createElement("base");
+        b.href = location.origin + path;
+        document.head.insertBefore(b, document.head.firstChild);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>私の取扱説明書ジェネレーター</title>
     <meta
@@ -133,7 +146,7 @@
         <section class="panel preview-wrap">
           <h2>プレビュー（出力と同じレイアウト）</h2>
           <div class="preview-scale">
-            <div class="preview-frame">
+            <div class="preview-frame" id="previewFrame">
               <div id="exportRoot">
                 <article class="card" id="card" aria-label="プレビューカード">
                   <div class="topbar"></div>

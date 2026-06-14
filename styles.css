@@ -19,6 +19,7 @@ body {
   color: var(--ink);
   background: var(--bg);
   line-height: 1.55;
+  overflow-x: hidden;
 }
 
 a {
@@ -180,18 +181,22 @@ button:disabled {
   border-radius: 12px;
   border: 1px solid var(--line);
   background: #111;
-  display: grid;
-  place-items: center;
+  overflow: hidden;
+  position: relative;
   box-shadow: var(--shadow);
 }
 
-/* The card is exported at true 1920×1080; scaled for on-screen preview */
+/* 1920×1080 のカードを枠幅に合わせて縮小（100vw 依存をやめて横スクロールを抑制） */
 #exportRoot {
+  --card-scale: 0.5;
   width: 1920px;
   height: 1080px;
-  transform: scale(calc(min(960px, 100vw - 40px) / 1920));
-  transform-origin: center center;
+  transform: scale(var(--card-scale));
+  transform-origin: top left;
   background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .card {
@@ -234,7 +239,8 @@ button:disabled {
 
 .meta {
   text-align: right;
-  min-width: 520px;
+  min-width: 0;
+  max-width: 52%;
 }
 
 .meta .name {

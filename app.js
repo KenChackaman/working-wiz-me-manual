@@ -418,6 +418,28 @@ function wire() {
   $("btnReset")?.addEventListener("click", resetForm);
 }
 
+function setupPreviewScaling() {
+  const frame = /** @type {HTMLElement | null} */ (document.getElementById("previewFrame"));
+  const root = /** @type {HTMLElement | null} */ (document.getElementById("exportRoot"));
+  if (!frame || !root) return;
+
+  const apply = () => {
+    const w = frame.clientWidth;
+    const scale = w > 0 ? w / 1920 : 0.5;
+    root.style.setProperty("--card-scale", String(scale));
+  };
+
+  apply();
+
+  if (typeof ResizeObserver !== "undefined") {
+    const ro = new ResizeObserver(() => apply());
+    ro.observe(frame);
+  } else {
+    window.addEventListener("resize", apply);
+  }
+}
+
 loadLocal();
 wire();
 updatePreview();
+setupPreviewScaling();
